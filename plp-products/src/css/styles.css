@@ -1,3 +1,9 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
 .content{
     display: flex;
     flex-wrap: wrap;
@@ -12,4 +18,34 @@
     gap: 8px;
     padding: 10px;
     width: 25%
+}
+
+.card__product-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card__button{
+  height: 40px;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.card__button:hover{
+    background-color: #C70039;
+    color: #fff;
+}
+
+.card__prices{
+    display: flex;
+    gap: 10px;
 }
