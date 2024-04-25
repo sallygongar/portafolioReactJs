@@ -17,7 +17,8 @@ body{
     flex-direction: column;
     gap: 8px;
     padding: 10px;
-    width: 25%
+    width: 25%;
+    position: relative;
 }
 
 .card__product-details{
@@ -48,4 +49,32 @@ body{
 .card__prices{
     display: flex;
     gap: 10px;
+}
+
+.content__tallas{
+    display: flex;
+    flex-direction: column;
+}
+
+.card__tallas{
+  display: flex;
+  gap: 8px;
+  flex-flow: row wrap;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  /*position: absolute;*/
+  background-color: #ffffff;
+  /*bottom: 0;*/
+}
+
+.card__tallas span{
+  width: 20px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #bababa;
+  padding: 5px 10px;
+  font-size: 12px;
+  text-align: center;
+  background: #fff;
+  gap: 9px;
 }

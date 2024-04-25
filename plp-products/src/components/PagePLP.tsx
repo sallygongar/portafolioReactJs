@@ -7,7 +7,7 @@ function PagePLP() {
   return (
     <div className="content">
       {
-        data.map((item,index) =>   <Product key={index} nombre={item.nombre} priceList={item.priceList} priceSelling={item.priceSelling} imagen= {item.imagen}/>)
+        data.map((item,index) => <Product key={index} nombre={item.nombre} priceList={item.priceList} priceSelling={item.priceSelling} imagen = {item.imagen} skus={item.tallas}/>)
       }
     </div>
   );

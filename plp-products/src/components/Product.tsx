@@ -1,18 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import ButtonCart from "./ButtonCart";
+import ModalTallas from "./ModalTallas";
 
 interface ProductProps{
-    nombre: string,
-    priceSelling: string;
-    priceList: string;
-    imagen?: string
+  nombre: string,
+  priceSelling: string;
+  priceList: string;
+  imagen?: string;
+  skus?: string[]
 }
 
-const addProduct = () => {
-  console.log("Selecciona tu talla")
-}
+const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, imagen, skus}) =>{
+  const [showTallas, setShowTallas] = useState(false);
 
-const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, imagen}) =>{
+  const openTallas = () => {
+    setShowTallas(!showTallas);
+  }
+
   return(
     <section className="card__product">
       <img src={imagen} alt="zapato" width='100%'/>
@@ -23,7 +27,11 @@ const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, image
             <span>{priceList}</span>
           </div>
         </div>
-        <ButtonCart texto="Selecciona talla" onClick={addProduct}/>
+        <ButtonCart texto="Selecciona talla" onClick={openTallas}/>
+       {
+        showTallas ? <ModalTallas skus={skus}/>  
+       : <></>
+       }
     </section>
   )
 } 
