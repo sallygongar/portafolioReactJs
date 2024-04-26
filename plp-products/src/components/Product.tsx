@@ -17,6 +17,10 @@ const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, image
     setShowTallas(!showTallas);
   }
 
+  const closeModal = () => {
+    setShowTallas(false);
+  }
+
   return(
     <section className="card__product">
       <img src={imagen} alt="zapato" width='100%'/>
@@ -29,7 +33,7 @@ const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, image
         </div>
         <ButtonCart texto="Selecciona talla" onClick={openTallas}/>
        {
-        showTallas ? <ModalTallas skus={skus}/>  
+        showTallas ? <ModalTallas skus={skus} onClick={closeModal}/>  
        : <></>
        }
     </section>

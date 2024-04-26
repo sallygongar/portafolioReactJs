@@ -51,9 +51,11 @@ body{
     gap: 10px;
 }
 
-.content__tallas{
+.content__modal{
     display: flex;
     flex-direction: column;
+    position: absolute;
+    bottom: 0;
 }
 
 .card__tallas{
@@ -61,10 +63,9 @@ body{
   gap: 8px;
   flex-flow: row wrap;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
-  padding: 15px;
-  /*position: absolute;*/
+  padding: 15px 15px 15px 20px;
   background-color: #ffffff;
-  /*bottom: 0;*/
+  position: relative;
 }
 
 .card__tallas span{
@@ -77,4 +78,35 @@ body{
   text-align: center;
   background: #fff;
   gap: 9px;
+  cursor: pointer;
+}
+
+.card__tallas span:hover{
+  border: 1px solid #C70039;
+}
+
+.close{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: -15%;
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 3px #999;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  color: #4d4d4d;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+}
+
+.close:hover{
+  background: #d51920;
+  color: #fff;
+  border: 1px solid #d51920;
 }
