@@ -7,18 +7,35 @@ interface ProductProps{
   priceSelling: string;
   priceList: string;
   imagen?: string;
-  skus?: string[]
+  skus?: string[],
+  agregarAlCarrito: (nombre: string, price: string, talla: string) => void;
 }
 
-const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, imagen, skus}) =>{
+const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, imagen, skus, agregarAlCarrito}) =>{
   const [showTallas, setShowTallas] = useState(false);
-
+  const [tallaSeleccionada, setTallaSeleccionada] = useState("");
+  const [isSucessfull, setSucessful] = useState(false)
+ 
   const openTallas = () => {
     setShowTallas(!showTallas);
   }
 
   const closeModal = () => {
     setShowTallas(false);
+  }
+
+  const handleSizeSelect = (talla: string) => {
+    setTallaSeleccionada(talla)
+    setShowTallas(false)
+  }
+
+  const handleAgregarCarrito = () =>{
+    agregarAlCarrito(nombre,priceSelling,tallaSeleccionada);
+    setTallaSeleccionada("")
+    setSucessful(true);
+    setTimeout(()=>{
+      setSucessful(false);
+    },2000)
   }
 
   return(
@@ -31,10 +48,9 @@ const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, image
             <span>{priceList}</span>
           </div>
         </div>
-        <ButtonCart texto="Selecciona talla" onClick={openTallas}/>
        {
-        showTallas ? <ModalTallas skus={skus} onClick={closeModal}/>  
-       : <></>
+        showTallas ? <ModalTallas skus={skus} handleClose={closeModal} handleSize={handleSizeSelect}/>  
+          : tallaSeleccionada?  <ButtonCart texto="Agregar a carrito" onClick={ handleAgregarCarrito}/> : <ButtonCart texto={isSucessfull ? "ITEM AGREGADO" : "Selecciona talla"} onClick={openTallas} disabled={isSucessfull}/>
        }
     </section>
   )

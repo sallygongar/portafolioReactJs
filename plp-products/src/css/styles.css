@@ -110,3 +110,8 @@ body{
   color: #fff;
   border: 1px solid #d51920;
 }
+
+.button__disabled{
+  cursor: auto;
+  background-color: #000;
+}
