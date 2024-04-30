@@ -1,21 +1,18 @@
 import React, {useState} from "react";
 import ButtonCart from "./ButtonCart";
 import ModalTallas from "./ModalTallas";
+import { Producto } from '../types/product';
 
 interface ProductProps{
-  nombre: string,
-  priceSelling: string;
-  priceList: string;
-  imagen?: string;
-  skus?: string[],
-  agregarAlCarrito: (nombre: string, price: string, talla: string) => void;
+  producto: Producto,
+  agregarAlCarrito: (producto: Producto, talla: string) => void;
 }
 
-const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, imagen, skus, agregarAlCarrito}) =>{
+const Product: React.FC<ProductProps> = ({producto, agregarAlCarrito}) =>{
   const [showTallas, setShowTallas] = useState(false);
   const [tallaSeleccionada, setTallaSeleccionada] = useState("");
-  const [isSucessfull, setSucessful] = useState(false)
- 
+  const [isSucessfull, setSucessful] = useState(false);
+
   const openTallas = () => {
     setShowTallas(!showTallas);
   }
@@ -30,7 +27,7 @@ const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, image
   }
 
   const handleAgregarCarrito = () =>{
-    agregarAlCarrito(nombre,priceSelling,tallaSeleccionada);
+    agregarAlCarrito(producto,tallaSeleccionada);
     setTallaSeleccionada("")
     setSucessful(true);
     setTimeout(()=>{
@@ -40,16 +37,16 @@ const Product: React.FC<ProductProps> = ({nombre, priceSelling, priceList, image
 
   return(
     <section className="card__product">
-      <img src={imagen} alt="zapato" width='100%'/>
+      <img src={producto.imagen} alt="zapato" width='100%'/>
         <div className="card__product-details">
-          <span>{nombre}</span>
+          <span>{producto.nombre}</span>
           <div className="card__prices">
-            <span>{priceSelling}</span>
-            <span>{priceList}</span>
+            <span>{producto.priceSelling}</span>
+            <span>{producto.priceList}</span>
           </div>
         </div>
        {
-        showTallas ? <ModalTallas skus={skus} handleClose={closeModal} handleSize={handleSizeSelect}/>  
+        showTallas ? <ModalTallas skus={producto.skus} handleClose={closeModal} handleSize={handleSizeSelect}/>  
           : tallaSeleccionada?  <ButtonCart texto="Agregar a carrito" onClick={ handleAgregarCarrito}/> : <ButtonCart texto={isSucessfull ? "ITEM AGREGADO" : "Selecciona talla"} onClick={openTallas} disabled={isSucessfull}/>
        }
     </section>

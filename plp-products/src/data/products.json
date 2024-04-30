@@ -1,86 +1,98 @@
 [
   {
+    "id": "1",
     "nombre": "Classics Ua Knu Skool Negro",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/vans2.png?alt=media&token=b587ee9f-3ffa-455c-a8b1-f876aba7a25f",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "2",
     "nombre": "Classics Old Skool Azul",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/vans2.png?alt=media&token=b587ee9f-3ffa-455c-a8b1-f876aba7a25f",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "3",
     "nombre": "Classics Old Skool Rojo",
     "priceList": "900",
     "priceSelling": "1200",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/vans3.png?alt=media&token=606ca001-9dd2-43ce-9771-8b5c3dc2ecd7",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "4",
     "nombre": "Skate Zahba Mid Café",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/zapatillas%201.png?alt=media&token=5574e009-c588-4d2e-99f2-2b912c526798",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "5",
     "nombre": "Classics Authentic Stackform Beige",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/zapatillas%202.png?alt=media&token=5af13a43-7390-4eb7-ae3f-8a813fb6becd",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "6",
     "nombre": "UltraRange Negro",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/zapatillas%203.png?alt=media&token=2cb2ebd8-ddfd-4cb4-a15f-173821ffc350",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "7",
     "nombre": "Classics Ua Knu Skool Negro",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/vans1.png?alt=media&token=db5e418b-dda2-419d-9c1e-302b696b670c",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "8",
     "nombre": "Classics Old Skool Azul",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/vans2.png?alt=media&token=b587ee9f-3ffa-455c-a8b1-f876aba7a25f",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "9",
     "nombre": "Classics Old Skool Rojo",
     "priceList": "900",
     "priceSelling": "1200",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/vans3.png?alt=media&token=606ca001-9dd2-43ce-9771-8b5c3dc2ecd7",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "10",
     "nombre": "Skate Zahba Mid Café",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/zapatillas%201.png?alt=media&token=5574e009-c588-4d2e-99f2-2b912c526798",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "11",
     "nombre": "Classics Authentic Stackform Beige",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/zapatillas%202.png?alt=media&token=5af13a43-7390-4eb7-ae3f-8a813fb6becd",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   },
   {
+    "id": "12",
     "nombre": "UltraRange Negro",
     "priceList": "1600",
     "priceSelling": "1700",
     "imagen": "https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/zapatillas%203.png?alt=media&token=2cb2ebd8-ddfd-4cb4-a15f-173821ffc350",
-    "tallas": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
+    "skus": ["21","21.5", "22", "22.5", "23", "23.5","24", "24.5", "25", "25.5", "26", "26.5", "27", "27.5", "28"]
   }
 ]
