@@ -10,6 +10,7 @@ body{
     justify-content: center;
     padding: 20px;
     gap: 10px;
+    flex-direction: column;
 }
 
 .card__product{
@@ -17,8 +18,10 @@ body{
     flex-direction: column;
     gap: 8px;
     padding: 10px;
-    width: 25%;
+    width: 20%;
     position: relative;
+    height: 500px;
+    justify-content: space-between;
 }
 
 .card__product-details{
@@ -114,4 +117,9 @@ body{
 .button__disabled{
   cursor: auto;
   background-color: #000;
+}
+
+.gallery_content{
+  display: flex;
+  flex-flow: row wrap;
 }

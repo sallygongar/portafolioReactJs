@@ -1,11 +1,17 @@
 
-import Product from './Product';
-import data from '../data/products.json';
+
 import '../css/styles.css';
 import { useState } from 'react';
 import { Producto } from '../types/product';
+import Gallery from './Gallery';
+import DetallesCarritoCompras from './DetallesCarritoCompras';
 
-const PagePLP: React.FC = () => {
+interface PageProps {
+  data: Producto[],
+  title: string
+}
+
+const PagePLP: React.FC<PageProps> = ({data, title}) => {
  const [carrito, setCarrito] = useState<{producto: Producto, talla: string}[]>([]);
 
  const agregarAlCarrito = (producto: Producto, talla: string) => {
@@ -14,21 +20,9 @@ const PagePLP: React.FC = () => {
 
   return (
     <div className="content">
-      {
-        data.map((item,index) => <Product key={index} producto={item} agregarAlCarrito={agregarAlCarrito}/>)
-      }
-      {
-        <>
-          <h2>Carrito de compras</h2>
-          <ul>
-            {carrito.map((item, index) => (
-              <li key={index}>
-                {item.producto.nombre} - Talla: {item.talla} - ${item.producto.priceSelling}
-              </li>
-            ))}
-          </ul>
-        </>
-      }
+      <h1>{title}</h1>
+      <Gallery data={data} agregarAlCarrito={agregarAlCarrito}/>
+      <DetallesCarritoCompras carrito={carrito} title='Detalle de compra'/>
     </div>
   );
 }
