@@ -1,69 +1,75 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useReducer, Dispatch } from 'react';
 
-// Definimos el tipo para el producto del carrito
-interface Producto {
+// Definimos el tipo para un producto en el carrito
+interface Product {
   id: number;
-  nombre: string;
-  precio: number;
+  name: string;
+  price: number;
+  quantity: number;
 }
 
-// Definimos el tipo para el contexto del carrito
-interface CarritoContextType {
-  carrito: Producto[];
-  agregarAlCarrito: (producto: Producto) => void;
-  eliminarDelCarrito: (indice: number) => void;
-  vaciarCarrito: () => void;
+// Definimos el tipo para el estado del carrito
+interface CartState {
+  products: Product[];
 }
 
-// Creamos el contexto del carrito
-const CarritoContext = createContext<CarritoContextType>({
-  carrito: [],
-  agregarAlCarrito: () => {},
-  eliminarDelCarrito: () => {},
-  vaciarCarrito: () => {},
-});
+// Definimos las acciones que pueden modificar el estado del carrito
+type CartAction =
+  | { type: 'ADD_PRODUCT'; product: Product }
+  | { type: 'REMOVE_PRODUCT'; productId: number }
+  | { type: 'UPDATE_QUANTITY'; productId: number; quantity: number };
 
-// Creamos un hook personalizado para acceder al contexto
-export const useCarrito = () => useContext(CarritoContext);
+// Creamos el contexto de datos del carrito
+const CartContext = createContext<{
+  state: CartState;
+  dispatch: Dispatch<CartAction>;
+} | undefined>(undefined);
 
-interface Props {
- children: React.ReactNode
-}
+// Definimos el reducer para gestionar las acciones del carrito
+const cartReducer = (state: CartState, action: CartAction): CartState => {
+  switch (action.type) {
+    case 'ADD_PRODUCT':
+      return {
+        ...state,
+        products: [...state.products, action.product],
+      };
+    case 'REMOVE_PRODUCT':
+      return {
+        ...state,
+        products: state.products.filter(
+          (product) => product.id !== action.productId
+        ),
+      };
+    case 'UPDATE_QUANTITY':
+      return {
+        ...state,
+        products: state.products.map((product) =>
+          product.id === action.productId
+            ? { ...product, quantity: action.quantity }
+            : product
+        ),
+      };
+    default:
+      return state;
+  }
+};
 
-// Creamos un proveedor de contexto
-export const CarritoProvider: React.FC<Props> = ({ children }) => {
-  // Definimos el estado del carrito usando useState
-  const [carrito, setCarrito] = useState<Producto[]>([]);
+// Creamos el proveedor del contexto de datos del carrito
+export const CartProvider: React.FC = ({ children }: any) => {
+  const [state, dispatch] = useReducer(cartReducer, { products: [] });
 
-  // Función para agregar un producto al carrito
-  const agregarAlCarrito = (producto: Producto) => {
-    setCarrito([...carrito, producto]);
-  };
-
-  // Función para eliminar un producto del carrito
-  const eliminarDelCarrito = (indice: number) => {
-    const nuevoCarrito = [...carrito];
-    nuevoCarrito.splice(indice, 1);
-    setCarrito(nuevoCarrito);
-  };
-
-  // Función para vaciar el carrito
-  const vaciarCarrito = () => {
-    setCarrito([]);
-  };
-
-  // Creamos el valor del contexto
-  const carritoContextValue: CarritoContextType = {
-    carrito,
-    agregarAlCarrito,
-    eliminarDelCarrito,
-    vaciarCarrito,
-  };
-
-  // Proporcionamos el contexto a los componentes hijos
   return (
-    <CarritoContext.Provider value={carritoContextValue}>
+    <CartContext.Provider value={{ state, dispatch }}>
       {children}
-    </CarritoContext.Provider>
+    </CartContext.Provider>
   );
+};
+
+// Hook personalizado para acceder al contexto de datos del carrito
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error('useCart debe ser usado dentro de un CartProvider');
+  }
+  return context;
 };
