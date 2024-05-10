@@ -7,7 +7,7 @@ export interface Producto {
   skus?: string[]
 }
 
-export interface ProductoList {
+export interface Productos {
   id: string,
   nombre: string,
   priceSelling: string,

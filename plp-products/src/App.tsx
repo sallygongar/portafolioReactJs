@@ -1,14 +1,27 @@
 
-import Navbar from "./components/Navbar";
-import PagePLP from "./components/PagePLP";
-import data from './data/products.json';
+//import Navbar from "./components/Navbar";
+//import PagePLP from "./components/PagePLP";
+import { ProductosProvider, useProductosContext } from "./contexto/ProductosProvider";
 
-function App() {
+const ProductosList: React.FC = () => {
+  const { productos } = useProductosContext();
+  
+  return(
+    <div>
+      <h2>Productos</h2>
+      <ul>
+        {
+          productos.map(producto =>(<li key={producto.id}>{producto.nombre}</li>))
+        }
+      </ul>
+    </div>
+  )
+}
+const App: React.FC = () => {
   return (
-   <>
-   <Navbar/>
-   <PagePLP data={data} title="Tenis de temporada"/>
-   </>
+   <ProductosProvider>
+    <ProductosList />
+   </ProductosProvider>
   );
 }
 
