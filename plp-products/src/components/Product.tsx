@@ -2,15 +2,20 @@ import React, {useState} from "react";
 import ButtonCart from "./ButtonCart";
 import ModalTallas from "./ModalTallas";
 import { Producto } from '../types/product';
+import calcularDescuento from '../helpers/porcentajeDescuento';
 
 interface ProductProps{
   producto: Producto
 }
 
 const Product: React.FC<ProductProps> = ({producto}) =>{
+  console.log(producto)
   const [showTallas, setShowTallas] = useState(false);
   const [tallaSeleccionada, setTallaSeleccionada] = useState("");
   const [isSucessfull, setSucessful] = useState(false);
+  const descuento = calcularDescuento(producto.priceSelling, producto.priceList);
+
+  console.log("descuento",descuento)
 
   const openTallas = () => {
     setShowTallas(!showTallas);
@@ -39,8 +44,15 @@ const Product: React.FC<ProductProps> = ({producto}) =>{
         <div className="card__product-details">
           <span>{producto.nombre}</span>
           <div className="card__prices">
-            <span>{producto.priceSelling}</span>
-            <span>{producto.priceList}</span>
+            {
+              descuento > 0 ?
+              <div>
+                <span>{producto.priceList}</span>
+                <span>{producto.priceSelling}</span>
+              </div>
+              :
+              <span>{producto.priceSelling}</span>
+            }
           </div>
         </div>
        {

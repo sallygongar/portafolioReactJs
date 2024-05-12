@@ -1,8 +1,8 @@
 export interface Productos {
   id: string,
   nombre: string,
-  priceSelling: string,
-  priceList: string,
+  priceSelling: number,
+  priceList: number,
   imagen?: string,
   skus?: string[]
 }
@@ -10,8 +10,8 @@ export interface Productos {
 export interface Producto {
   id: string,
   nombre: string,
-  priceSelling: string,
-  priceList: string,
+  priceSelling: number,
+  priceList: number,
   imagen?: string,
   skus?: string[]
 }
