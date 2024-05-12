@@ -1,9 +1,5 @@
-
-
-import '../css/styles.css';
-//import { useState } from 'react';
-//import { Producto } from '../types/product';
-//import Gallery from './Gallery';
+import { useProductosContext } from '../contexto/ProductosProvider'
+import Gallery from './Gallery';
 //import DetallesCarritoCompras from './DetallesCarritoCompras';
 
 interface PageProps {
@@ -11,14 +7,14 @@ interface PageProps {
 }
 
 const PagePLP: React.FC<PageProps> = ({ title}) => {
- 
+  const { productos } = useProductosContext();
 
   return (
     <div className="content">
       <h1>{title}</h1>
-      {/*<Gallery data={data} agregarAlCarrito={agregarAlCarrito}/>
-      <DetallesCarritoCompras carrito={carrito} title='Detalle de compra'/>
-  */}
+      <Gallery data={productos} />
+      {/*<DetallesCarritoCompras carrito={carrito} title='Detalle de compra'/>*/}
+  
     </div>
   );
 }

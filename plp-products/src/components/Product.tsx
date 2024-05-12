@@ -4,11 +4,10 @@ import ModalTallas from "./ModalTallas";
 import { Producto } from '../types/product';
 
 interface ProductProps{
-  producto: Producto,
-  agregarAlCarrito: (producto: Producto, talla: string) => void;
+  producto: Producto
 }
 
-const Product: React.FC<ProductProps> = ({producto, agregarAlCarrito}) =>{
+const Product: React.FC<ProductProps> = ({producto}) =>{
   const [showTallas, setShowTallas] = useState(false);
   const [tallaSeleccionada, setTallaSeleccionada] = useState("");
   const [isSucessfull, setSucessful] = useState(false);
@@ -27,7 +26,6 @@ const Product: React.FC<ProductProps> = ({producto, agregarAlCarrito}) =>{
   }
 
   const handleAgregarCarrito = () =>{
-    agregarAlCarrito(producto,tallaSeleccionada);
     setTallaSeleccionada("")
     setSucessful(true);
     setTimeout(()=>{

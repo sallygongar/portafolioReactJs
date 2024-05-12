@@ -1,19 +1,19 @@
 import React from "react";
 import Product from './Product';
-import { Producto } from '../types/product';
+import { Productos } from '../types/product';
 
 interface GalleryProps {
- data: Producto[],
- agregarAlCarrito: (producto: Producto, talla: string) => void;
+ data: Productos[],
 }
 
 
-const Gallery: React.FC<GalleryProps> = ({data, agregarAlCarrito}) => {
+const Gallery: React.FC<GalleryProps> = ({ data }) => {
+ 
   return(
     <div className="gallery_content">
       {
         /* GALLERY  */
-        data.map((item,index) => <Product key={index} producto={item} agregarAlCarrito={agregarAlCarrito}/>)
+        data.map((item,index) => <Product key={index} producto={item} />)
       }
 
     </div>

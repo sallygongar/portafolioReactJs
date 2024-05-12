@@ -1,26 +1,14 @@
 
-//import Navbar from "./components/Navbar";
-//import PagePLP from "./components/PagePLP";
-import { ProductosProvider, useProductosContext } from "./contexto/ProductosProvider";
+import Navbar from "./components/Navbar";
+import PagePLP from "./components/PagePLP";
+import { ProductosProvider} from "./contexto/ProductosProvider";
+import './css/styles.css';
 
-const ProductosList: React.FC = () => {
-  const { productos } = useProductosContext();
-  
-  return(
-    <div>
-      <h2>Productos</h2>
-      <ul>
-        {
-          productos.map(producto =>(<li key={producto.id}>{producto.nombre}</li>))
-        }
-      </ul>
-    </div>
-  )
-}
 const App: React.FC = () => {
   return (
    <ProductosProvider>
-    <ProductosList />
+    <Navbar/>
+    <PagePLP title="PRODUCTOS DE COLECCIÓN"/>
    </ProductosProvider>
   );
 }
