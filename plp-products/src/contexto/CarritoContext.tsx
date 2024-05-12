@@ -1,21 +1,23 @@
 import React, { createContext, useContext, useReducer, Dispatch } from 'react';
 
 // Definimos el tipo para un producto en el carrito
-interface Product {
+interface ProductItem {
   id: number;
-  name: string;
-  price: number;
-  quantity: number;
+  nombre: string;
+  precio: number;
+  cantidad: number;
+  talla: string;
 }
 
 // Definimos el tipo para el estado del carrito
 interface CartState {
-  products: Product[];
+  products: ProductItem[];
 }
 
 // Definimos las acciones que pueden modificar el estado del carrito
 type CartAction =
-  | { type: 'ADD_PRODUCT'; product: Product }
+  | { type: 'ADD_PRODUCT'; product: ProductItem }
+  //| { type: 'ADD_TALLA'; productId: number; talla: string }
   | { type: 'REMOVE_PRODUCT'; productId: number }
   | { type: 'UPDATE_QUANTITY'; productId: number; quantity: number };
 
