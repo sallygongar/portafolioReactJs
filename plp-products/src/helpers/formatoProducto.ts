@@ -11,7 +11,8 @@ export default function formatoProducto(producto: Producto){
       precioVenta: producto.priceSelling,
       precioFinal: calcularDescuento(producto.priceSelling, producto.priceList) > 0 ?  producto.priceList : producto.priceSelling,
       descuentoAplicado: calcularDescuento(producto.priceSelling, producto.priceList),
-      cantidad: 1
+      cantidad: 1,
+      talla: ""
     }
     return contextProductItem;
 

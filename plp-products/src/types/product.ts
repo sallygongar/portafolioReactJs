@@ -19,10 +19,11 @@ export interface Producto {
 export interface ProductoItem {
   id: string,
   nombre: string,
-  imagen: string,
+  imagen?: string,
   precioNormal: number,
   precioVenta: number,
   precioFinal: number,
-  descuentoAplicado: number,
-  cantidad: number
+  cantidad: number,
+  talla: string,
+  descuentoAplicado: number
 }

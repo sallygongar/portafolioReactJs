@@ -7,18 +7,18 @@ interface CarritoProps {
 }
 
 const DetallesCarritoCompras: React.FC<CarritoProps> = ({carrito,title}) => {
-    return (
-      <>
-      <h2>{title}</h2>
-      <ul>
-        {carrito.map((item, index) => (
-          <li key={index}>
-            {item.producto.nombre} - Talla: {item.talla} - ${item.producto.priceSelling}
-          </li>
-        ))}
-      </ul>
-    </>
-    )
+  return (
+    <>
+    <h2>{title}</h2>
+    <ul>
+      {carrito.map((item, index) => (
+        <li key={index}>
+         {item.cantidad} {item.nombre} - Talla {item.talla} -  $ {item.precioFinal}
+        </li>
+      ))}
+    </ul>
+  </>
+  )
 }
 
 export default DetallesCarritoCompras;

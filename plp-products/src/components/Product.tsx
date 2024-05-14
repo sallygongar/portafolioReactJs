@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { useCart } from '../contexto/CarritoContext';
 import ButtonCart from "./ButtonCart";
 import ModalTallas from "./ModalTallas";
-import { Producto } from '../types/product';
+import { Producto, ProductoItem } from '../types/product';
 import formatoProducto from "../helpers/formatoProducto";
 
 interface ProductProps{
@@ -12,9 +13,9 @@ const Product: React.FC<ProductProps> = ({producto}) =>{
   const [showTallas, setShowTallas] = useState(false);
   const [tallaSeleccionada, setTallaSeleccionada] = useState("");
   const [isSucessfull, setSucessful] = useState(false);
-  const itemProduct = formatoProducto(producto);
-
-  console.log("----itemProduct----", itemProduct)
+  const itemProduct: ProductoItem = formatoProducto(producto);
+  const { dispatch } = useCart();
+  //console.log("----itemProduct----", itemProduct)
 
   const openTallas = () => {
     setShowTallas(!showTallas);
@@ -29,7 +30,9 @@ const Product: React.FC<ProductProps> = ({producto}) =>{
     setShowTallas(false)
   }
 
-  const handleAgregarCarrito = () =>{
+  const handleAgregarCarrito = (item: ProductoItem) =>{
+    let producto = {...item, talla: tallaSeleccionada };
+    dispatch({ type: "ADD_PRODUCT", producto });
     setTallaSeleccionada("")
     setSucessful(true);
     setTimeout(()=>{
@@ -57,7 +60,7 @@ const Product: React.FC<ProductProps> = ({producto}) =>{
         </div>
        {
         showTallas ? <ModalTallas skus={producto.skus} handleClose={closeModal} handleSize={handleSizeSelect}/>  
-          : tallaSeleccionada?  <ButtonCart texto="Agregar a carrito" onClick={handleAgregarCarrito}/> : <ButtonCart texto={isSucessfull ? "ITEM AGREGADO" : "Selecciona talla"} onClick={openTallas} disabled={isSucessfull}/>
+          : tallaSeleccionada?  <ButtonCart texto="Agregar a carrito" onClick={() =>handleAgregarCarrito(itemProduct)}/> : <ButtonCart texto={isSucessfull ? "ITEM AGREGADO" : "Selecciona talla"} onClick={openTallas} disabled={isSucessfull}/>
        }
     </section>
   )

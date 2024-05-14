@@ -2,22 +2,29 @@ import React, { createContext, useContext, useReducer, Dispatch } from 'react';
 
 // Definimos el tipo para un producto en el carrito
 interface ProductItem {
-  id: number;
+  id: string;
   nombre: string;
-  precio: number;
+  imagen?: string;
+  precioNormal: number;
+  precioVenta: number;
+  precioFinal: number;
   cantidad: number;
   talla: string;
+  descuentoAplicado: number
+}
+
+interface childrenProps {
+  children?: React.ReactNode; // Permitir children
 }
 
 // Definimos el tipo para el estado del carrito
 interface CartState {
-  products: ProductItem[];
+  productos: ProductItem[];
 }
 
 // Definimos las acciones que pueden modificar el estado del carrito
 type CartAction =
-  | { type: 'ADD_PRODUCT'; product: ProductItem }
-  //| { type: 'ADD_TALLA'; productId: number; talla: string }
+  | { type: 'ADD_PRODUCT'; producto: ProductItem }
   | { type: 'REMOVE_PRODUCT'; productId: number }
   | { type: 'UPDATE_QUANTITY'; productId: number; quantity: number };
 
@@ -33,22 +40,22 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
     case 'ADD_PRODUCT':
       return {
         ...state,
-        products: [...state.products, action.product],
+        productos: [...state.productos, action.producto],
       };
     case 'REMOVE_PRODUCT':
       return {
         ...state,
-        products: state.products.filter(
-          (product) => product.id !== action.productId
+        productos: state.productos.filter(
+          (producto) => parseInt(producto.id) !== action.productId
         ),
       };
     case 'UPDATE_QUANTITY':
       return {
         ...state,
-        products: state.products.map((product) =>
-          product.id === action.productId
-            ? { ...product, quantity: action.quantity }
-            : product
+        productos: state.productos.map((producto) =>
+          parseInt(producto.id) === action.productId
+            ? { ...producto, quantity: action.quantity }
+            : producto
         ),
       };
     default:
@@ -57,8 +64,8 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 };
 
 // Creamos el proveedor del contexto de datos del carrito
-export const CartProvider: React.FC = ({ children }: any) => {
-  const [state, dispatch] = useReducer(cartReducer, { products: [] });
+export const CartProvider: React.FC<childrenProps> = ({ children }) => {
+  const [state, dispatch] = useReducer(cartReducer, { productos: [] });
 
   return (
     <CartContext.Provider value={{ state, dispatch }}>

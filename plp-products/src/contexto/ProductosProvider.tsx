@@ -3,11 +3,11 @@ import { Productos } from "../types/product";
 import { ProductosContext } from './ProductosContext';
 import data from '../data/products.json';
 
-interface OtherProps {
+interface childrenProps {
   children?: React.ReactNode; // Permitir children
 }
 
-export const ProductosProvider: React.FC<OtherProps> = ({ children }) => {
+export const ProductosProvider: React.FC<childrenProps> = ({ children }) => {
 
     const [productos, setProductos] = useState<Productos[]>([])
 
