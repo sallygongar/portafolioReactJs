@@ -15,3 +15,14 @@ export interface Producto {
   imagen?: string,
   skus?: string[]
 }
+
+export interface ProductoItem {
+  id: string,
+  nombre: string,
+  imagen: string,
+  precioNormal: number,
+  precioVenta: number,
+  precioFinal: number,
+  descuentoAplicado: number,
+  cantidad: number
+}

@@ -2,20 +2,19 @@ import React, {useState} from "react";
 import ButtonCart from "./ButtonCart";
 import ModalTallas from "./ModalTallas";
 import { Producto } from '../types/product';
-import calcularDescuento from '../helpers/porcentajeDescuento';
+import formatoProducto from "../helpers/formatoProducto";
 
 interface ProductProps{
   producto: Producto
 }
 
 const Product: React.FC<ProductProps> = ({producto}) =>{
-  console.log(producto)
   const [showTallas, setShowTallas] = useState(false);
   const [tallaSeleccionada, setTallaSeleccionada] = useState("");
   const [isSucessfull, setSucessful] = useState(false);
-  const descuento = calcularDescuento(producto.priceSelling, producto.priceList);
+  const itemProduct = formatoProducto(producto);
 
-  console.log("descuento",descuento)
+  console.log("----itemProduct----", itemProduct)
 
   const openTallas = () => {
     setShowTallas(!showTallas);
@@ -40,24 +39,25 @@ const Product: React.FC<ProductProps> = ({producto}) =>{
 
   return(
     <section className="card__product">
-      <img src={producto.imagen} alt="zapato" width='100%'/>
+      <img src={itemProduct.imagen} alt="zapato" width='100%'/>
         <div className="card__product-details">
-          <span>{producto.nombre}</span>
-          <div className="card__prices">
-            {
-              descuento > 0 ?
-              <div>
-                <span>{producto.priceList}</span>
-                <span>{producto.priceSelling}</span>
-              </div>
-              :
-              <span>{producto.priceSelling}</span>
-            }
-          </div>
+          <span>{itemProduct.nombre}</span>
+          {
+            itemProduct.descuentoAplicado > 0 ?
+            <div className="card__prices">
+              <span className="price__descuento">{itemProduct.precioNormal}</span>
+              <span className="price__anterior">{itemProduct.precioVenta}</span>
+            </div>
+            :
+            <div className="card__prices">
+              <span>{itemProduct.precioVenta}</span>
+            </div>
+          }
+        
         </div>
        {
         showTallas ? <ModalTallas skus={producto.skus} handleClose={closeModal} handleSize={handleSizeSelect}/>  
-          : tallaSeleccionada?  <ButtonCart texto="Agregar a carrito" onClick={ handleAgregarCarrito}/> : <ButtonCart texto={isSucessfull ? "ITEM AGREGADO" : "Selecciona talla"} onClick={openTallas} disabled={isSucessfull}/>
+          : tallaSeleccionada?  <ButtonCart texto="Agregar a carrito" onClick={handleAgregarCarrito}/> : <ButtonCart texto={isSucessfull ? "ITEM AGREGADO" : "Selecciona talla"} onClick={openTallas} disabled={isSucessfull}/>
        }
     </section>
   )
