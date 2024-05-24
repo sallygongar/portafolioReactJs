@@ -221,3 +221,38 @@ body{
 {
   color: red;
 }
+
+/*Detalles de carrito*/
+
+.cart__list-content{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__list__container-productos{
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__list__wrapper_detalles{
+  display: flex;
+}
+
+.cart__list__wrapper_imagen{
+  display: flex;
+}
+
+.cart__list__wrapper_producto{
+  display: flex;
+}
+
+.cart__list__caracteristicas{
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__list__wrapper_imagen .cart__list_img{
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
