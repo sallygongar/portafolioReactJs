@@ -112,5 +112,43 @@ body{
   align-items: center;
   width: 100%;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.button_forget{
+  width: 100%;
+  height: 42px;
+  border: none;
+  background: #bb2929;
+  color: #fff;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper_new-accout{
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.sign_up{
+  font-family: 'Montserrat';
+  font-size: 16px;
+  text-decoration: none;
+  color: #494949;
+  cursor: pointer;
+}
+
+.wrapper_action-google{
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import './scss/styles.scss';
+import LoginGoogle from "./components/LoginGoogle";
 
 function Login(){
   return(
@@ -18,9 +19,14 @@ function Login(){
             <div className="wrapper_button">
               <button type="button" className="button_login" >Entrar</button>
             </div>
+            <div className="wrapper_action-google">
+              <LoginGoogle/>
+            </div>
             <div className="wrapper_forget">
-              <label>¿Olvidaste tu contraseña?</label>
-              <label>Crear cuenta</label>
+              <button type="button" className="button_forget">¿Olvidaste tu contraseña?</button>
+            </div>
+            <div className="wrapper_new-accout">
+              <a href="https://es.react.dev/" target="_blank" rel="noreferrer" className="sign_up">¿No tienes cuenta? <span style={{ color: '#4545dd', textDecoration: 'underline'}}>Crear cuenta</span></a>
             </div>
           </div>
         </form>
