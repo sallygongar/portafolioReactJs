@@ -6,9 +6,15 @@ function Login(){
   return(
     <>
       <div className="content_main">
-        <form className="content_login">
-          <h2>User Login</h2>
-          <div className="contenido_login">
+        <div className="content_login">
+          <h2>Iniciar sesión</h2>
+          <form className="contenido_login">
+            <div className="wrapper_action-google">
+              <LoginGoogle/>
+            </div>
+            <div className="divider">
+              <p>O ingresar con su cuenta</p>
+            </div>
             <div className="wrapper_input">
               <input  type="text" name="email" value="" placeholder="Correo Eléctronico"/>
             </div>
@@ -19,17 +25,14 @@ function Login(){
             <div className="wrapper_button">
               <button type="button" className="button_login" >Entrar</button>
             </div>
-            <div className="wrapper_action-google">
-              <LoginGoogle/>
-            </div>
             <div className="wrapper_forget">
               <button type="button" className="button_forget">¿Olvidaste tu contraseña?</button>
             </div>
             <div className="wrapper_new-accout">
               <a href="https://es.react.dev/" target="_blank" rel="noreferrer" className="sign_up">¿No tienes cuenta? <span style={{ color: '#4545dd', textDecoration: 'underline'}}>Crear cuenta</span></a>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </>
   )
