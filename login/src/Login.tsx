@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './scss/styles.scss';
 import LoginGoogle from "./components/LoginGoogle";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-function Login(){
+interface Ilogin {
+  onLogin: (auth: boolean) => void
+}
+
+function Login({onLogin}: Ilogin){
 
   const [user,setUser] = useState({
     email: "",
@@ -20,6 +25,7 @@ function Login(){
     email: false,
     password: false
   });
+  const navigate = useNavigate();
 
   const handleOnChange = ( e: any) => {
     const { name, value } = e.target;
@@ -65,8 +71,11 @@ function Login(){
   const handleLogin = () => {
     if(validationForm()){
       console.log("¡Bienvenido!")
+      onLogin(true)
+      navigate("/dashboard");
     }else{
       console.log("Verifica tus datos")
+      onLogin(false)
     }
   }
 
