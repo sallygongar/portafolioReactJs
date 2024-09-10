@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
 import Login from "./Login";
 import Dashboard from "./components/Dashboard";
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { UserProvider } from './context/UserContext';
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const handleLogin = (authStatus: boolean) =>{
-    console.log("Desde app",authStatus)
-    setIsAuthenticated(authStatus);
-  }
-
   return (
-   <Router>
-      <Routes>
-        <Route path="/" element={<Login onLogin={handleLogin} />} />
-        <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
-      </Routes>
-   </Router>
+    <UserProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+        </Routes>
+      </Router>
+    </UserProvider>
+ 
   );
 }
 
