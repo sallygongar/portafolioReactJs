@@ -1,4 +1,4 @@
-import Login from "./Login";
+import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';

@@ -22,6 +22,7 @@ export function UserProvider({children}:  { children: ReactNode }){
   )
 }
 
+//Hook personalizado para acceder al contexto de autenticación.
   export const useAuth = () => {
     const context = useContext(UserContext);
     if (context === undefined) {

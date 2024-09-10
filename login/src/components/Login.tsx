@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './scss/styles.scss';
-import LoginGoogle from "./components/LoginGoogle";
-import { useAuth } from './context/UserContext';
+import '../scss/styles.scss';
+import LoginGoogle from "./LoginGoogle";
+import { useAuth } from '../context/UserContext';
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 function Login(){
