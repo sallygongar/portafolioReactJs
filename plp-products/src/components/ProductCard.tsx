@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import { useCart } from '../contexto/CarritoContext';
+import { useCart } from '../contexto/CarritoContext';
 import ButtonCart from "./ButtonCart";
 import ModalTallas from "./ModalTallas";
 import { Producto, ProductoItem } from '../types/product';
@@ -12,36 +12,39 @@ interface ProductProps{
   onClose?: () => void;
 }
 
-const ProductCard: React.FC<ProductProps> = ({producto, isOpen, onOpen,onClose}) =>{
-  //const [showTallas, setShowTallas] = useState(false);
+const ProductCard: React.FC<ProductProps> = ({producto, isOpen, onOpen, onClose}) =>{
   const [tallaSeleccionada, setTallaSeleccionada] = useState("");
-  //const [isSucessfull, setSucessful] = useState(false);
+  const [isSucessfull, setSucessful] = useState(false);
   const itemProduct: ProductoItem = formatoProducto(producto);
-  //const { dispatch } = useCart();
-  console.log("isOpen:",isOpen)
-  //console.log("----itemProduct----", itemProduct)
+  const { dispatch } = useCart();
+  
+  
+  const handleSize = (event: React.MouseEvent<HTMLSpanElement> ,talla: string) => {
+    setTallaSeleccionada(talla);
+    const targetElement = event.target as HTMLSpanElement; // Obtener el target
 
-  /*const openTallas = () => {
-    setShowTallas(!showTallas);
-  }
-
-  const closeModal = () => {
-    setShowTallas(false);
-  }*/
-
-  const handleSize = (talla: string) => {
-    setTallaSeleccionada(talla)
+    //Recorriendo span para eliminar estilos
+    const spans = document.querySelectorAll('.card__tallas span');
+    spans.forEach(span => {
+      span.removeAttribute('style');
+      //span.classList.remove('nuevo_estilo') //Otra forma de remover clase css
+    });
+    
+    targetElement.style.border = '1px solid red';
+    //targetElement.classList.add('nuevo_estilo') //Otra forma de agregar clase css
   }
 
   const handleAgregarCarrito = (item: ProductoItem) =>{
-    console.log(item)
-   /* let producto = {...item, talla: tallaSeleccionada };
+   let producto = {...item, talla: tallaSeleccionada };
     dispatch({ type: "ADD_PRODUCT", producto });
     setTallaSeleccionada("")
     setSucessful(true);
+    
+    onClose?.(); // Asi se invoca una función que puede ser undefined
+  
     setTimeout(()=>{
       setSucessful(false);
-    },2000)*/
+    },2000)
   }
 
   return(
@@ -62,7 +65,10 @@ const ProductCard: React.FC<ProductProps> = ({producto, isOpen, onOpen,onClose})
           }
         
         </div>
-        <button onClick={onOpen}>Seleccionar Producto</button>
+        {
+          tallaSeleccionada ? <ButtonCart texto="Agregar a carrito" onClick={() =>handleAgregarCarrito(itemProduct)}/> : <button className="card__button" onClick={onOpen}>{isSucessfull ? 'Producto Agregado' : 'Seleccionar Talla'}</button>
+        }
+        
         {
           isOpen ? <ModalTallas skus={producto.skus} handleClose={onClose} handleSize={handleSize}/> : ""
         

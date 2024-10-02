@@ -58,7 +58,7 @@ body{
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: 40px;
+    bottom: 50px;
 }
 
 .card__tallas{
@@ -254,4 +254,8 @@ body{
   width: 150px;
   height: 150px;
   overflow: hidden;
+}
+
+.card__tallas span:active{
+  border: 1px solid red;
 }

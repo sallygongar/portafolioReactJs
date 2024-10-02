@@ -3,7 +3,7 @@ import React from "react";
 interface ModalProps {
   skus?: string[],
   handleClose?: () => void;
-  handleSize: (talla: string) => void;
+  handleSize: (event: React.MouseEvent<HTMLSpanElement>, talla: string) => void;
 }
 
 const ModalTallas: React.FC<ModalProps> = ({skus,handleClose, handleSize}) => {
@@ -13,7 +13,7 @@ const ModalTallas: React.FC<ModalProps> = ({skus,handleClose, handleSize}) => {
       <button type="button" className="close" onClick={handleClose}>x</button>
       <div className="card__tallas">
         {
-          skus?.map((item, index)=> <span key={index} onClick={() => handleSize(item) } >{item}</span>)
+          skus?.map((item, index)=> <span key={index} onClick={(event) => handleSize(event,item) } >{item}</span>)
         }
       </div>
       </div>
