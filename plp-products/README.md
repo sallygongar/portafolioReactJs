@@ -30,3 +30,4 @@ Este proyecto está licenciado bajo la Licencia MIT. Ver el archivo [LICENSE](LI
 ## Recursos
 - [React Dev](https://es.react.dev/)
 - [Developer Mozilla](https://developer.mozilla.org/)
+- [javascript.info](https://javascript.info)
