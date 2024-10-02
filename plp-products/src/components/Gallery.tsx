@@ -1,5 +1,5 @@
 import React from "react";
-import Product from './Product';
+import ProductCard from './ProductCard';
 import { useProductosContext } from '../contexto/ProductosProvider';
 
 
@@ -9,7 +9,7 @@ const Gallery: React.FC = () => {
     <div className="gallery_content">
       {
         /* GALLERY  */
-        productos.map((item,index) => <Product key={index} producto={item} />)
+        productos.map((item,index) => <ProductCard key={index} producto={item} />)
       }
 
     </div>

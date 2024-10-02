@@ -1,5 +1,5 @@
 export interface Productos {
-  id: string,
+  id: number,
   nombre: string,
   priceSelling: number,
   priceList: number,
@@ -8,7 +8,7 @@ export interface Productos {
 }
 
 export interface Producto {
-  id: string,
+  id: number,
   nombre: string,
   priceSelling: number,
   priceList: number,
@@ -17,7 +17,7 @@ export interface Producto {
 }
 
 export interface ProductoItem {
-  id: string,
+  id: number,
   nombre: string,
   imagen?: string,
   precioNormal: number,

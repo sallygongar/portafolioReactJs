@@ -1,43 +1,47 @@
 import React, { useState } from "react";
-import { useCart } from '../contexto/CarritoContext';
+//import { useCart } from '../contexto/CarritoContext';
 import ButtonCart from "./ButtonCart";
 import ModalTallas from "./ModalTallas";
 import { Producto, ProductoItem } from '../types/product';
 import formatoProducto from "../helpers/formatoProducto";
 
 interface ProductProps{
-  producto: Producto
+  producto: Producto,
+  isOpen?: boolean,
+  onOpen?: (id: any) => void;
+  onClose?: () => void;
 }
 
-const Product: React.FC<ProductProps> = ({producto}) =>{
-  const [showTallas, setShowTallas] = useState(false);
+const ProductCard: React.FC<ProductProps> = ({producto, isOpen, onOpen,onClose}) =>{
+  //const [showTallas, setShowTallas] = useState(false);
   const [tallaSeleccionada, setTallaSeleccionada] = useState("");
-  const [isSucessfull, setSucessful] = useState(false);
+  //const [isSucessfull, setSucessful] = useState(false);
   const itemProduct: ProductoItem = formatoProducto(producto);
-  const { dispatch } = useCart();
+  //const { dispatch } = useCart();
+  console.log("isOpen:",isOpen)
   //console.log("----itemProduct----", itemProduct)
 
-  const openTallas = () => {
+  /*const openTallas = () => {
     setShowTallas(!showTallas);
   }
 
   const closeModal = () => {
     setShowTallas(false);
-  }
+  }*/
 
-  const handleSizeSelect = (talla: string) => {
+  const handleSize = (talla: string) => {
     setTallaSeleccionada(talla)
-    setShowTallas(false)
   }
 
   const handleAgregarCarrito = (item: ProductoItem) =>{
-    let producto = {...item, talla: tallaSeleccionada };
+    console.log(item)
+   /* let producto = {...item, talla: tallaSeleccionada };
     dispatch({ type: "ADD_PRODUCT", producto });
     setTallaSeleccionada("")
     setSucessful(true);
     setTimeout(()=>{
       setSucessful(false);
-    },2000)
+    },2000)*/
   }
 
   return(
@@ -58,12 +62,13 @@ const Product: React.FC<ProductProps> = ({producto}) =>{
           }
         
         </div>
-       {
-        showTallas ? <ModalTallas skus={producto.skus} handleClose={closeModal} handleSize={handleSizeSelect}/>  
-          : tallaSeleccionada?  <ButtonCart texto="Agregar a carrito" onClick={() =>handleAgregarCarrito(itemProduct)}/> : <ButtonCart texto={isSucessfull ? "ITEM AGREGADO" : "Selecciona talla"} onClick={openTallas} disabled={isSucessfull}/>
-       }
+        <button onClick={onOpen}>Seleccionar Producto</button>
+        {
+          isOpen ? <ModalTallas skus={producto.skus} handleClose={onClose} handleSize={handleSize}/> : ""
+        
+        }
     </section>
   )
 } 
 
-export default Product;
+export default ProductCard;

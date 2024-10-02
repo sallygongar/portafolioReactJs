@@ -6,11 +6,11 @@ const Navbar: React.FC = () => {
     <nav className="navbar">
       <div className="nav__menu">
         <ul>
-          <li><img className="nav__logo" src="https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/florskincare.jpg?alt=media&token=efc80054-2f92-4248-9f7f-18e6e5deba45" alt="Flor de loto" /></li>
-          <li>Skin Facial</li>
-          <li>Skin Corporal</li>
-          <li>Protocolos</li>
-          <li>Citas</li>
+          <li><img className="nav__logo" src="https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/zapatillas.png?alt=media&token=fbc801b2-b189-4ca5-9bc3-4417d11145ae" alt="Tenis" /></li>
+          <li>Casuales</li>
+          <li>Tenis</li>
+          <li>Nuevos</li>
+          <li>Clasicos</li>
         </ul>
       </div>
       <div className="nav__compras">

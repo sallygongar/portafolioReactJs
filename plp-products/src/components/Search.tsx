@@ -4,7 +4,7 @@ const Search: React.FC = () => {
     return(
       <form> 
         <div className="search__content">
-          <input type="search" id="mySearch" name="q" placeholder="Buscar skin care"/>
+          <input type="search" id="mySearch" name="q" placeholder="Buscar producto"/>
           <button>Buscar</button>
         </div>
       </form>

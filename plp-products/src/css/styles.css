@@ -32,7 +32,7 @@ body{
 
 .card__button{
   height: 40px;
-  background: #000;
+  background: #6A647F;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@ body{
 }
 
 .card__button:hover{
-    background-color: #C70039;
+    background-color: #000;
     color: #fff;
 }
 
@@ -58,7 +58,7 @@ body{
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: 0;
+    bottom: 40px;
 }
 
 .card__tallas{
@@ -132,15 +132,14 @@ body{
   padding: 5px 10px;
 }
 .nav__logo{
- width: 100px;
- border-radius: 120px;
+ width: 70px;
 }
 
 .navbar {
-  background-color: #ff3374;
+  background-color: #6A647F;
   color: #fff;
   padding: 10px;
-  border-radius: 1px solid #ff3374;
+  border-radius: 1px solid #6A647F;
   display: flex;
   justify-content: space-between;
 }

@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer, Dispatch } from 'react';
 
 // Definimos el tipo para un producto en el carrito
 interface ProductItem {
-  id: string;
+  id: number;
   nombre: string;
   imagen?: string;
   precioNormal: number;
@@ -46,14 +46,14 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       return {
         ...state,
         productos: state.productos.filter(
-          (producto) => parseInt(producto.id) !== action.productId
+          (producto) => producto.id !== action.productId
         ),
       };
     case 'UPDATE_QUANTITY':
       return {
         ...state,
         productos: state.productos.map((producto) =>
-          parseInt(producto.id) === action.productId
+          producto.id === action.productId
             ? { ...producto, quantity: action.quantity }
             : producto
         ),
