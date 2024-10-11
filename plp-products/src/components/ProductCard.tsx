@@ -66,7 +66,7 @@ const ProductCard: React.FC<ProductProps> = ({producto, isOpen, onOpen, onClose}
         
         </div>
         {
-          tallaSeleccionada ? <ButtonCart texto="Agregar a carrito" onClick={() =>handleAgregarCarrito(itemProduct)}/> : <button className="card__button" onClick={onOpen} disabled={isSucessfull} style={{cursor: isSucessfull ? 'auto': 'pointer', background: isSucessfull ? 'gray': '' }}>{isSucessfull ? 'Producto Agregado' : 'Seleccionar Talla'}</button>
+          tallaSeleccionada ? <ButtonCart texto="Agregar a carrito" onClick={() =>handleAgregarCarrito(itemProduct)} customStyle="card_button--add"/> : <button className="card__button" onClick={onOpen} disabled={isSucessfull} style={{cursor: isSucessfull ? 'auto': 'pointer', background: isSucessfull ? 'gray': '' }}>{isSucessfull ? 'Producto Agregado' : 'Seleccionar Talla'}</button>
         }
         
         {

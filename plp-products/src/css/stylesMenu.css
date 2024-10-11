@@ -1,11 +1,11 @@
 .content_menu_mobile{
  display: none;
- @media screen and (max-width: 768px) {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  position: relative;
-  background: #6A647F;
- }
+  @media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    position: relative;
+    background: #000000;
+  }
 }
 
 .toogle-menu{
@@ -23,7 +23,7 @@
   position: absolute;
   top: 64px;
   left: 0;
-  background-color: #6A647F;
+  background-color: #000000;
   width: 150px;
   padding: 5px;
   border-radius: 8px;
@@ -33,6 +33,7 @@
   overflow: hidden;
   transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
   opacity: 0;
+  border: 1px solid #000000;
 }
 
 .menu-mobile.open{
@@ -64,6 +65,8 @@
   display: flex;
   padding: 0;
   gap: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
 .content-opciones-menu-mobile li{
