@@ -4,7 +4,7 @@
 Simulación de una página web con grilla de productos
 
 ## Screenshots 📸
-![App Screenshot](https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/grillaProductos.png?alt=media&token=3bb7a0f0-2bce-4ab9-8bcd-a8b4d829dac4)
+![App Screenshot](https://firebasestorage.googleapis.com/v0/b/proyectos-web-565ae.appspot.com/o/Screenshot%202024-10-16%20at%2020-42-10%20React%20App.png?alt=media&token=22be236b-b4a4-464d-b20a-0014fe2bce71)
 
 ## Instalación
 1. Clona el repositorio:
